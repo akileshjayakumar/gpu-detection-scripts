@@ -16,32 +16,19 @@ python gpu_test.py
 - Gracefully report missing frameworks instead of crashing.
 
 ## Configuration
-- No required environment variables.
-- Optional: activate the correct environment for your CUDA drivers/toolkit before running checks.
+- No required environment variables are documented for basic usage.
 
 ## Usage
-Run all checks:
 ```bash
 python gpu_test.py
 ```
 
-Run only the PyTorch check:
-```bash
-python gpu_test_pytorch.py
-```
-
-Run only the TensorFlow check:
-```bash
-python gpu_test_tf.py
-```
-
 ## Contributing and Testing
-- Open an issue or PR with improvements to script output or compatibility.
-- Run tests with:
+- Contributions are welcome through pull requests with clear, scoped changes.
+- Run the following checks before submitting changes:
 ```bash
-pytest
+python -m pytest
 ```
-- Tests execute each script end-to-end from `tests/test_scripts.py`.
 
 ## License
 Licensed under the `MIT` license. See [LICENSE](./LICENSE) for full text.
