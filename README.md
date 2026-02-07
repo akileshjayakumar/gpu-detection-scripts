@@ -1,79 +1,47 @@
 # GPU Detection Scripts
+Small Python utilities to quickly verify whether your machine can see GPUs through PyTorch and TensorFlow.
 
-This repository contains Python scripts to check GPU availability and status using PyTorch and TensorFlow.
+## Quick Start
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python gpu_test.py
+```
 
-## Files
+## Capabilities
+- Check CUDA visibility and device details via PyTorch (`gpu_test_pytorch.py`).
+- Check visible GPU count via TensorFlow (`gpu_test_tf.py`).
+- Run a combined check in one command (`gpu_test.py`).
+- Gracefully report missing frameworks instead of crashing.
 
-- **gpu_test.py**: Checks GPU availability using PyTorch and TensorFlow.
-- **gpu_test_pytorch.py**: Checks GPU availability using PyTorch only.
-- **gpu_test_tf.py**: Checks GPU availability using TensorFlow only.
+## Configuration
+- No required environment variables.
+- Optional: activate the correct environment for your CUDA drivers/toolkit before running checks.
 
 ## Usage
-
-To check for GPU availability, run the appropriate script:
-
-- **For both PyTorch and TensorFlow:**
-  ```bash
-  python gpu_test.py
-  ```
-- **For PyTorch only:**
-  ```bash
-  python gpu_test_pytorch.py
-  ```
-- **For TensorFlow only:**
-  ```bash
-  python gpu_test_tf.py
-  ```
-
-## Output
-
-Each script will display the following information:
-
-- **PyTorch**: 
-  - If CUDA is available.
-  - Number of CUDA devices.
-  - Name of the first CUDA device (if available).
-  
-- **TensorFlow**:
-  - Number of GPUs available (prefixed with `Num GPUs Available:`).
-
-## Requirements
-
-Ensure you have the necessary libraries installed. The scripts will notify you
-if either library is missing. Install them individually with:
-
+Run all checks:
 ```bash
-pip install torch tensorflow pytest
+python gpu_test.py
 ```
 
-
-## Requirements
-
-Ensure you have the necessary libraries installed. The scripts will notify you
-if either library is missing. Install them individually with:
-
+Run only the PyTorch check:
 ```bash
-pip install torch tensorflow pytest
+python gpu_test_pytorch.py
 ```
 
-Alternatively, install everything from the provided requirements file:
-
+Run only the TensorFlow check:
 ```bash
-pip install -r requirements.txt
+python gpu_test_tf.py
 ```
 
-## Testing
-
-This project uses [pytest](https://pytest.org/) for its test suite. After
-installing the required packages, run:
-
+## Contributing and Testing
+- Open an issue or PR with improvements to script output or compatibility.
+- Run tests with:
 ```bash
 pytest
 ```
+- Tests execute each script end-to-end from `tests/test_scripts.py`.
 
-This command executes the tests under the `tests` directory and verifies that
-each GPU detection script runs without errors.
-
-## Acknowledgments
-
-Thanks to the open-source community for the tools and libraries used.
+## License
+Licensed under the `MIT` license. See [LICENSE](./LICENSE) for full text.
